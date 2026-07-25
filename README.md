@@ -1,6 +1,6 @@
-# 🧠 Obsidian Knowledge Base — Claude Code 零管线个人知识库
+# 🧠 Obsidian Knowledge Base — 三种模式，一个大脑
 
-> **不写一行脚本，知识自动沉淀。越用越聪明。**
+> **快速记录 × 深度编译 × 网络拉取。越用越聪明。**
 
 [![GitHub stars](https://img.shields.io/badge/Claude%20Code-Ready-blue)](#)
 [![Obsidian](https://img.shields.io/badge/Obsidian-Ready-purple)](#)
@@ -8,35 +8,36 @@
 
 ## 📖 这是什么？
 
-一个**极简的 Claude Code + Obsidian 个人知识库方案**。
+一个融合了三种知识管理模式的 Claude Code + Obsidian 个人知识库方案：
 
-与市面上流行的"LLM Wiki"方案不同——那些方案需要你搭管线、写脚本、跑编译——本方案秉持 **少即是多** 的理念：
-
-| 其他方案 | 本方案 |
-|---------|--------|
-| 需要 Python/Node 脚本 | **零脚本** |
-| 管线：Ingest→Compile→Lint→Query | **零管线** |
-| 需要学习整套工作流 | **一句话就能用** |
-| 知识需要"编译"才能用 | **存进去=活的，下次直接搜** |
+| 模式 | 一句话概括 | 灵感来源 |
+|------|-----------|---------|
+| **A：快记** 🟢 | 解决问题 → 告诉 Claude "记住" → 自动存档 | 你的"少即是多"理念 |
+| **B：编译** 🔵 | 投入资料 → LLM 自动编织知识网络 → Wiki | [Karpathy LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) |
+| **C：拉取** 🟣 | 从网站/Wiki/论坛拉取内容 → 自动入库 | 新增能力 |
 
 **核心飞轮：**
 ```
-解决问题 → 告诉 Claude "记住这个"
-       ↙                    ↘
-下次回答更准 ← 检索本地知识 + 大模型综合判断
+你遇到问题 / 看到文章 / 想到点子
+  │
+  ├─ A：一句话保存经验到 笔记/
+  ├─ B：投入 raw/ → 自动编译到 wiki/（10-15页）
+  └─ C：Web → raw/ → wiki/
+  │
+  ▼
+  知识沉淀 → Obsidian 图谱 → 下次回答更准
 ```
 
 ---
 
 ## ✨ 功能特性
 
-- 🚀 **零配置启动**：`git clone` → 在 Obsidian 打开 → 开始用
+- 🚀 **三合一**：快速记录 + Karpathy LLM Wiki + 网络拉取，一套 Vault 全搞定
 - 🧠 **跨会话记忆**：Claude Code Memory 自动持久化关键事实
-- 📝 **Markdown 原生**：所有知识是纯 Markdown，Obsidian 原生读取
-- 🔗 **知识图谱**：Claude Code 用 `[[wikilinks]]` 写笔记 → Obsidian 自动生成图谱
-- 📂 **分类清晰**：笔记/、项目/、引用/、日记/ 四个分区
-- 🔍 **自动检索**：问问题时，Claude Code 自动搜索本地知识库
-- 💾 **零 Vendor Lock-in**：离开 Claude 或 Obsidian，你的知识依然是可读的 Markdown
+- 📝 **Markdown 原生**：纯 Markdown，Obsidian 原生读取，零 Vendor Lock-in
+- 🔗 **知识图谱**：`[[wikilinks]]` 自动构建 Obsidian Graph View
+- 📂 **分区清晰**：笔记/（快记）、raw/（资料）、wiki/（编译知识）
+- 🌐 **网络拉取**：从技术网站/Wiki/论坛抓取内容，自动消化入库
 
 ---
 
@@ -86,29 +87,34 @@ Claude 会在 笔记/技术/ 下创建 Python处理CSV文件经验.md
 
 ```
 obsidian-knowledge-base/       ← Obsidian Vault = Claude Code 工作目录
-├── CLAUDE.md                  ← 项目指令（Claude Code 自动加载）
-├── 笔记/                      ← 日常笔记
-│   ├── 技术/                  ← 技术相关
-│   ├── 生活/                  ← 生活记录
-│   └── 项目/                  ← 项目相关
-├── 项目/                      ← 每个项目独立子目录
-├── 引用/                      ← 外部资料、书摘
-├── 日记/                      ← Daily Notes
-├── skill/                     ← CC Switch 安装入口（skill 文件夹）
-│   └── obsidian-knowledge-base/
-│       └── SKILL.md           ← Skill 定义
-├── .claude/
-│   └── skills/
-│       └── obsidian-knowledge-base/
-│           └── SKILL.md       ← 同上，Claude Code 本地加载用
-└── .gitignore
+├── CLAUDE.md                  ← 项目指令（三种模式规范）
+├── 📝 笔记/                   ← [A] 快速记录
+│   ├── 技术/ 生活/ 项目/
+├── 📁 项目/                   ← [A] 项目资料
+├── 📚 引用/                   ← [A] 外部书摘
+├── 📅 日记/                   ← [A] Daily Notes
+├── 📥 raw/                    ← [B+C] 原始资料（只读）
+│   └── 01-articles/ 02-web/ 03-forum/ 09-archive/
+├── 🧠 wiki/                   ← [B] 编译知识层
+│   ├── index.md + log.md
+│   └── concepts/ entities/ sources/ syntheses/
+└── .claude/skills/            ← 5 个 Skill
+    ├── obsidian-knowledge-base/  ingest/  query/  lint/  web-pull/
 ```
 
 ---
 
-## ⚡ CC Switch 安装（可选）
+## ⚡ CC Switch 安装
 
-如果你使用 [CC Switch](https://github.com/farion1231/cc-switch) 管理技能，可以通过以下两种方式安装：
+本项目包含 **5 个 Skill**，可通过 [CC Switch](https://github.com/farion1231/cc-switch) 管理：
+
+| Skill | 作用 |
+|-------|------|
+| `obsidian-knowledge-base` | 主 Skill — 三种模式统一入口 |
+| `ingest` | raw/ → wiki/ 深度编译管线 |
+| `query` | wiki/ 索引导航深度检索 |
+| `lint` | 知识库健康检查 |
+| `web-pull` | 从互联网拉取内容入库 |
 
 ### 方式一：仓库添加（推荐）
 
@@ -121,15 +127,16 @@ obsidian-knowledge-base/       ← Obsidian Vault = Claude Code 工作目录
 | Branch | `main` |
 | Subdirectory | `skill` |
 
-添加后 CC Switch 会自动发现并可以安装 `obsidian-knowledge-base` 技能。
+添加后 CC Switch 会自动发现全部 5 个技能，一键安装。
 
-### 方式二：从 Actions 下载 ZIP（推荐 ✅）
+### 方式二：从 Actions 下载 ZIP
 
-1. 打开仓库 [Actions 页面](https://github.com/dragoncaosl/obsidian-knowledge-base/actions) → **Package Skill for CC Switch**
-2. 点击最新运行记录 → 下载 **Artifacts** 中的 `obsidian-knowledge-base.skill`
-3. 在 CC Switch Skills 面板点击「从 ZIP 安装」，选择下载的 ZIP 文件
+1. 打开仓库 [Actions 页面](https://github.com/dragoncaosl/obsidian-knowledge-base/actions) → **Package Skills for CC Switch**
+2. 点击最新运行记录 → 下载 **Artifacts** 中的 `all-skills`
+3. 解压后得到 5 个 `.skill.zip` 文件（每个对应一个 skill）
+4. 在 CC Switch Skills 面板点击「从 ZIP 安装」，选择需要的 ZIP
 
-> Actions 工作流会在 `skill/` 目录内容更新时自动打包，你拿到的 ZIP 解压后第一级就是 skill 文件夹，**CC Switch 直接认**。
+> Actions 工作流在 skill 目录更新时自动打包，ZIP 直接可用无需解压。
 
 ---
 
