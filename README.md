@@ -94,12 +94,41 @@ obsidian-knowledge-base/       ← Obsidian Vault = Claude Code 工作目录
 ├── 项目/                      ← 每个项目独立子目录
 ├── 引用/                      ← 外部资料、书摘
 ├── 日记/                      ← Daily Notes
+├── skill/                     ← CC Switch 安装入口（skill 文件夹）
+│   └── obsidian-knowledge-base/
+│       └── SKILL.md           ← Skill 定义
 ├── .claude/
 │   └── skills/
 │       └── obsidian-knowledge-base/
-│           └── SKILL.md       ← Claude Code Skill 定义
+│           └── SKILL.md       ← 同上，Claude Code 本地加载用
 └── .gitignore
 ```
+
+---
+
+## ⚡ CC Switch 安装（可选）
+
+如果你使用 [CC Switch](https://github.com/farion1231/cc-switch) 管理技能，可以通过以下两种方式安装：
+
+### 方式一：仓库添加（推荐）
+
+在 CC Switch 的「仓库管理」中添加：
+
+| 字段 | 值 |
+|------|----|
+| Owner | `dragoncaosl` |
+| Name | `obsidian-knowledge-base` |
+| Branch | `main` |
+| Subdirectory | `skill` |
+
+添加后 CC Switch 会自动发现并可以安装 `obsidian-knowledge-base` 技能。
+
+### 方式二：从 ZIP 安装
+
+1. 下载本仓库 ZIP：点击 GitHub 页面 `Code → Download ZIP`
+2. 解压后进入 `obsidian-knowledge-base-main/skill/` 目录
+3. 将 `obsidian-knowledge-base` 文件夹单独打包成 ZIP
+4. 在 CC Switch Skills 面板点击「从 ZIP 安装」，选择打包好的 ZIP
 
 ---
 
