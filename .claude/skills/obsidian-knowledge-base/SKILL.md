@@ -20,6 +20,84 @@ description: "Use when setting up or managing a personal knowledge base with Cla
   知识沉淀 → Obsidian 图谱 → 下次回答更准
 ```
 
+## 🚀 一键初始化：/init-vault
+
+**安装本 Skill 后，只需跑一次初始化命令，整个知识库自动搭建完成。**
+
+### 操作步骤
+
+```
+安装 Skill 后 → 打开终端 → 在你想要的位置运行：
+
+  claude
+
+然后输入：
+
+  /init-vault 或 "初始化知识库"
+
+Claude Code 会：
+  1. 询问你 Vault 存放路径（默认当前目录）
+  2. 创建完整的目录结构
+  3. 从 GitHub 拉取 CLAUDE.md + wiki/index.md + wiki/log.md
+  4. 拉取其余 4 个子 Skill（ingest / query / lint / web-pull）
+  5. 安装到 .claude/skills/ 目录
+  6. 指导你在 Obsidian 中打开 Vault
+```
+
+### 初始化流水线
+
+当用户说 `/init-vault` 或"初始化知识库"时，按以下步骤执行：
+
+#### Step 1：确认路径
+```asked
+用户：/init-vault
+你：❓ 请指定 Vault 存放路径（直接回车则使用当前目录）：
+用户：[输入路径或回车]
+```
+
+#### Step 2：创建目录结构
+```创建
+Vault/
+├── 笔记/{技术,生活,项目}/
+├── 项目/
+├── 引用/
+├── 日记/
+├── raw/{01-articles,02-web,03-forum,09-archive}/
+├── wiki/{concepts,entities,sources,syntheses}/
+└── .claude/skills/
+```
+
+#### Step 3：拉取项目文件
+使用 WebFetch 从 GitHub 获取以下文件并写入对应位置：
+- `https://raw.githubusercontent.com/dragoncaosl/obsidian-knowledge-base/main/CLAUDE.md` → `Vault/CLAUDE.md`
+- `https://raw.githubusercontent.com/dragoncaosl/obsidian-knowledge-base/main/wiki/index.md` → `Vault/wiki/index.md`
+- `https://raw.githubusercontent.com/dragoncaosl/obsidian-knowledge-base/main/wiki/log.md` → `Vault/wiki/log.md`
+
+#### Step 4：拉取并安装子 Skill
+使用 WebFetch 从 GitHub 获取以下 SKILL.md 文件，保存到 `Vault/.claude/skills/<skill名>/SKILL.md`：
+- `ingest/SKILL.md` — `https://raw.githubusercontent.com/dragoncaosl/obsidian-knowledge-base/main/.claude/skills/ingest/SKILL.md`
+- `query/SKILL.md` — `https://raw.githubusercontent.com/dragoncaosl/obsidian-knowledge-base/main/.claude/skills/query/SKILL.md`
+- `lint/SKILL.md` — `https://raw.githubusercontent.com/dragoncaosl/obsidian-knowledge-base/main/.claude/skills/lint/SKILL.md`
+- `web-pull/SKILL.md` — `https://raw.githubusercontent.com/dragoncaosl/obsidian-knowledge-base/main/.claude/skills/web-pull/SKILL.md`
+
+#### Step 5：完成提示
+```
+✅ 知识库初始化完成！
+
+下一步：
+  1. 打开 Obsidian → 打开本地文件夹 → 选择 Vault 路径
+  2. 在 Claude Code 中开始使用：
+     - "把这个经验存到知识库" → 模式A
+     - "/ingest raw/..." → 模式B
+     - "从 MDN 拉取 fetch API" → 模式C
+```
+
+### 注意
+- 如果 WebFetch 拉取 GitHub 失败（网络问题），提示用户手动从 `https://github.com/dragoncaosl/obsidian-knowledge-base` 下载并复制文件
+- 如果路径下已有文件，询问是否覆盖
+
+---
+
 ## 三种模式速览
 
 | 模式 | 你说的话 | Claude 做的事 | 适合场景 |
