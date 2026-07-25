@@ -1,0 +1,15 @@
+# 依赖和产物
+node_modules/
+.vscode/
+.obsidian/workspace.json
+.obsidian/workspace
+
+# 系统
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# 日志
+*.log
