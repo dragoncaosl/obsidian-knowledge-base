@@ -123,12 +123,13 @@ obsidian-knowledge-base/       ← Obsidian Vault = Claude Code 工作目录
 
 添加后 CC Switch 会自动发现并可以安装 `obsidian-knowledge-base` 技能。
 
-### 方式二：从 ZIP 安装
+### 方式二：从 Actions 下载 ZIP（推荐 ✅）
 
-1. 下载本仓库 ZIP：点击 GitHub 页面 `Code → Download ZIP`
-2. 解压后进入 `obsidian-knowledge-base-main/skill/` 目录
-3. 将 `obsidian-knowledge-base` 文件夹单独打包成 ZIP
-4. 在 CC Switch Skills 面板点击「从 ZIP 安装」，选择打包好的 ZIP
+1. 打开仓库 [Actions 页面](https://github.com/dragoncaosl/obsidian-knowledge-base/actions) → **Package Skill for CC Switch**
+2. 点击最新运行记录 → 下载 **Artifacts** 中的 `obsidian-knowledge-base.skill`
+3. 在 CC Switch Skills 面板点击「从 ZIP 安装」，选择下载的 ZIP 文件
+
+> Actions 工作流会在 `skill/` 目录内容更新时自动打包，你拿到的 ZIP 解压后第一级就是 skill 文件夹，**CC Switch 直接认**。
 
 ---
 
