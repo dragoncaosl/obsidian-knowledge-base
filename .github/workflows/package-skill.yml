@@ -48,9 +48,14 @@ jobs:
             name="${dir%/}"
             zip -r "../${name}.skill.zip" "$dir"
           done
+          # 也打包一个总包（所有 skill 合并在一个 ZIP）
+          cd ..
+          zip -r obsidian-knowledge-base-bundle.zip ingest.skill.zip lint.skill.zip obsidian-knowledge-base.skill.zip query.skill.zip web-pull.skill.zip
 
       - name: 🏷️ 创建 Release
         uses: softprops/action-gh-release@v2
         with:
-          files: '*.skill.zip'
+          files: |
+            *.skill.zip
+            obsidian-knowledge-base-bundle.zip
           generate_release_notes: true

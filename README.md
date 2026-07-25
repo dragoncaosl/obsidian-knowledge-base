@@ -43,20 +43,26 @@
 
 ## 🚀 快速开始
 
-**最快的方式：** 只需安装 **1 个 Skill**，跑 **1 条命令**。
+**只需 2 步：下载 ZIP → CC Switch → /init-vault**
 
-### 1. CC Switch 安装（从 Actions 下载 ZIP）
+### 1. 下载总包 ZIP
 
-1. 打开仓库 [Actions 页面](https://github.com/dragoncaosl/obsidian-knowledge-base/actions) → **Package Skills for CC Switch**
-2. 点击最新运行记录 → 下载 **Artifacts** 中的 `all-skills`
-3. 解压得到 5 个 `.skill.zip` 文件
-4. 在 CC Switch Skills 面板点击「从 ZIP 安装」→ 选择 **`obsidian-knowledge-base.skill.zip`**
-5. **只需安装这一个！** 其他 4 个会在初始化时自动安装
+| 方式 | 操作 |
+|------|------|
+| **⭐ 推荐：Releases** | 打开仓库 [Releases 页面](https://github.com/dragoncaosl/obsidian-knowledge-base/releases) → 下载 `obsidian-knowledge-base-bundle.zip` |
+| 备选：Actions | [Actions](https://github.com/dragoncaosl/obsidian-knowledge-base/actions) → **Package Skills for CC Switch** → 下载 `all-skills` |
 
-### 2. 一键初始化
+### 2. CC Switch 安装
+
+1. 打开 **CC Switch** → **Skills** 面板
+2. 点击 **「从 ZIP 安装」**
+3. 选择刚才下载的 `obsidian-knowledge-base-bundle.zip`
+4. ✅ **5 个 Skill 一次装好**
+
+### 3. 一键初始化
 
 ```bash
-# 在你想要放 Vault 的位置启动 Claude Code
+# 在你想要放 Vault 的位置
 cd D:\你的知识库目录
 claude
 
@@ -64,25 +70,9 @@ claude
 /init-vault
 ```
 
-Claude 会自动：
-```
-✅ 创建完整目录结构（笔记/ raw/ wiki/ ...）
-✅ 拉取 CLAUDE.md 项目指令
-✅ 安装 ingest / query / lint / web-pull 四个 Skill
-✅ 初始化 wiki/index.md + wiki/log.md
-```
+Claude 会自动创建目录、拉取 CLAUDE.md 和 wiki 文件、安装其余 Skill。
 
-### 3. 在 Obsidian 中打开
-
-打开 Obsidian → **打开本地文件夹** → 选择你刚才初始化的目录
-
-### 4. 开始使用
-
-| 模式 | 试试说 |
-|------|--------|
-| 🟢 A：快速记录 | "把这个经验存到知识库" |
-| 🔵 B：深度编译 | "/ingest raw/..." |
-| 🟣 C：网络拉取 | "从 MDN 拉取 fetch API 的文档" |
+### 4. Obsidian 中打开 → 开始用
 
 ---
 
