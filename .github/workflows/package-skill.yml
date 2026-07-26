@@ -3,9 +3,8 @@ name: Package Skills for CC Switch
 on:
   push:
     branches: [main]
-    paths:
-      - 'skill/**'
-      - '.github/workflows/package-skill.yml'
+    tags:
+      - 'v*'
   workflow_dispatch:
 
 jobs:
@@ -22,10 +21,8 @@ jobs:
             zip -r "../${name}.skill.zip" "$dir"
             echo "✅ 打包: ${name}.skill.zip"
           done
-          echo "---"
-          echo "共打包 $(ls -1 ../*.skill.zip 2>/dev/null | wc -l) 个 Skill"
 
-      - name: ⬆️ 上传所有 Artifacts
+      - name: ⬆️ 上传 Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: all-skills
@@ -33,7 +30,6 @@ jobs:
           if-no-files-found: error
 
   release:
-    needs: package
     if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     permissions:
@@ -41,21 +37,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: 📦 打包所有 Skills（Release）
+      - name: 📦 打包总包 ZIP
         run: |
           cd skill
           for dir in */; do
             name="${dir%/}"
             zip -r "../${name}.skill.zip" "$dir"
           done
-          # 也打包一个总包（所有 skill 合并在一个 ZIP）
           cd ..
-          zip -r obsidian-knowledge-base-bundle.zip ingest.skill.zip lint.skill.zip obsidian-knowledge-base.skill.zip query.skill.zip web-pull.skill.zip
+          zip -r obsidian-knowledge-base-bundle.zip \
+            obsidian-knowledge-base.skill.zip \
+            ingest.skill.zip query.skill.zip lint.skill.zip web-pull.skill.zip
 
       - name: 🏷️ 创建 Release
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            *.skill.zip
             obsidian-knowledge-base-bundle.zip
           generate_release_notes: true
