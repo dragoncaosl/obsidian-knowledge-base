@@ -1,6 +1,7 @@
 ---
 name: obsidian-knowledge-base
 description: "Use when setting up or managing a personal knowledge base with Claude Code and Obsidian, when saving experiences from problem-solving, when compiling research into structured wiki pages, or when pulling content from the web into your knowledge base"
+user-invocable: true
 ---
 
 # 🧠 Obsidian Knowledge Base — 三种模式，一个大脑
@@ -24,33 +25,18 @@ description: "Use when setting up or managing a personal knowledge base with Cla
 
 **安装本 Skill 后，只需跑一次初始化命令，整个知识库自动搭建完成。**
 
-### 操作步骤
+### 如何触发
 
-```
-安装 Skill 后 → 打开终端 → 在你想要的位置运行：
+有两种方式：
+- **输入 `/` 选择 `obsidian-knowledge-base`**，然后说"初始化知识库"
+- **直接说**："帮我初始化知识库" 或 "帮我搭建一个知识库"
 
-  claude
+### Init 流程
 
-然后输入：
-
-  /init-vault 或 "初始化知识库"
-
-Claude Code 会：
-  1. 询问你 Vault 存放路径（默认当前目录）
-  2. 创建完整的目录结构
-  3. 从 GitHub 拉取 CLAUDE.md + wiki/index.md + wiki/log.md
-  4. 拉取其余 4 个子 Skill（ingest / query / lint / web-pull）
-  5. 安装到 .claude/skills/ 目录
-  6. 指导你在 Obsidian 中打开 Vault
-```
-
-### 初始化流水线
-
-当用户说 `/init-vault` 或"初始化知识库"时，按以下步骤执行：
+当用户触发并说"初始化知识库"时，按以下步骤执行：
 
 #### Step 1：确认路径
-```asked
-用户：/init-vault
+```
 你：❓ 请指定 Vault 存放路径（直接回车则使用当前目录）：
 用户：[输入路径或回车]
 ```
