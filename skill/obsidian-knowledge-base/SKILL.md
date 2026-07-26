@@ -35,6 +35,26 @@ user-invocable: true
 
 当用户触发并说"初始化知识库"时，按以下步骤执行：
 
+#### Step 0：检查并安装所需软件
+
+检查以下软件是否已安装，未安装则自动安装：
+
+| 软件 | 检测命令（Windows） | 安装命令（Windows） | 用途 |
+|------|-------------------|-------------------|------|
+| **Obsidian** | `where obsidian` | `winget install Obsidian.Obsidian --silent` | 知识库可视化 |
+| **Git** | `where git` | `winget install Git.Git --silent` | 版本管理（可选） |
+| **Claude Code** | `where claude` | 已安装（当前正在运行） | AI 助手 |
+
+```
+检测到 Obsidian 未安装 → 正在通过 winget 安装...
+[等待安装完成]
+✅ Obsidian 已安装
+```
+
+> 如果 `winget` 不可用，指导用户手动从官网下载：
+> - Obsidian：https://obsidian.md/download
+> - Git：https://git-scm.com/download/win
+
 #### Step 1：确认路径
 ```
 你：❓ 请指定 Vault 存放路径（直接回车则使用当前目录）：
@@ -66,16 +86,26 @@ Vault/
 - `lint_obsidian-knowledge` — `https://raw.githubusercontent.com/dragoncaosl/obsidian-knowledge-base/main/.claude/skills/lint_obsidian-knowledge/SKILL.md`
 - `web-pull_obsidian-knowledge` — `https://raw.githubusercontent.com/dragoncaosl/obsidian-knowledge-base/main/.claude/skills/web-pull_obsidian-knowledge/SKILL.md`
 
-#### Step 5：完成提示
+#### Step 6：完成提示
 ```
 ✅ 知识库初始化完成！
+
+📦 已创建：
+   - 笔记/、项目/、引用/、日记/（模式A）
+   - raw/、wiki/ 含 index + log（模式B+C）
+   - .claude/skills/ 全部 5 个 Skill
+
+🛠️ 已安装：
+   - Obsidian ✅（如之前未安装）
+   - 其他依赖检查通过
 
 下一步：
   1. 打开 Obsidian → 打开本地文件夹 → 选择 Vault 路径
   2. 在 Claude Code 中开始使用：
      - "把这个经验存到知识库" → 模式A
-     - "/ingest raw/..." → 模式B
+     - "编译 raw/01-articles/xxx.md" → 模式B
      - "从 MDN 拉取 fetch API" → 模式C
+     - "检查知识库健康" → Lint
 ```
 
 ### 注意
