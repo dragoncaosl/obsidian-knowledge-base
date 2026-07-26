@@ -1,5 +1,5 @@
 ---
-name: web-pull
+name: web-pull_obsidian-knowledge
 description: "Use when the user wants to pull content from websites, technical documentation, wikis, forums, or blogs into their knowledge base. Triggered by phrases like 'pull from', 'fetch from', 'grab content from', '拉取', '抓取' followed by a URL or website name. Also used when the user wants to research and save online resources"
 ---
 

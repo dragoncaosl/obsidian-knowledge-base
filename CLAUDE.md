@@ -31,11 +31,11 @@ obsidian-knowledge-base/        ← Vault 根目录
 │
 └── .claude/
     └── skills/
-        ├── obsidian-knowledge-base/SKILL.md  ← 主 Skill
-        ├── ingest/SKILL.md                   ← 编译管线
-        ├── query/SKILL.md                    ← 深度检索
-        ├── lint/SKILL.md                     ← 健康检查
-        └── web-pull/SKILL.md                 ← 网络拉取
+        ├── obsidian-knowledge-base/SKILL.md              ← 主 Skill
+        ├── ingest_obsidian-knowledge/SKILL.md            ← 编译管线
+        ├── query_obsidian-knowledge/SKILL.md             ← 深度检索
+        ├── lint_obsidian-knowledge/SKILL.md              ← 健康检查
+        └── web-pull_obsidian-knowledge/SKILL.md          ← 网络拉取
 ```
 
 ## 三种工作模式

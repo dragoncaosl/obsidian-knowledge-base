@@ -61,10 +61,10 @@ Vault/
 
 #### Step 4：拉取并安装子 Skill
 使用 WebFetch 从 GitHub 获取以下 SKILL.md 文件，保存到 `Vault/.claude/skills/<skill名>/SKILL.md`：
-- `ingest/SKILL.md` — `https://raw.githubusercontent.com/dragoncaosl/obsidian-knowledge-base/main/.claude/skills/ingest/SKILL.md`
-- `query/SKILL.md` — `https://raw.githubusercontent.com/dragoncaosl/obsidian-knowledge-base/main/.claude/skills/query/SKILL.md`
-- `lint/SKILL.md` — `https://raw.githubusercontent.com/dragoncaosl/obsidian-knowledge-base/main/.claude/skills/lint/SKILL.md`
-- `web-pull/SKILL.md` — `https://raw.githubusercontent.com/dragoncaosl/obsidian-knowledge-base/main/.claude/skills/web-pull/SKILL.md`
+- `ingest_obsidian-knowledge` — `https://raw.githubusercontent.com/dragoncaosl/obsidian-knowledge-base/main/.claude/skills/ingest_obsidian-knowledge/SKILL.md`
+- `query_obsidian-knowledge` — `https://raw.githubusercontent.com/dragoncaosl/obsidian-knowledge-base/main/.claude/skills/query_obsidian-knowledge/SKILL.md`
+- `lint_obsidian-knowledge` — `https://raw.githubusercontent.com/dragoncaosl/obsidian-knowledge-base/main/.claude/skills/lint_obsidian-knowledge/SKILL.md`
+- `web-pull_obsidian-knowledge` — `https://raw.githubusercontent.com/dragoncaosl/obsidian-knowledge-base/main/.claude/skills/web-pull_obsidian-knowledge/SKILL.md`
 
 #### Step 5：完成提示
 ```
@@ -119,11 +119,11 @@ Vault/
 │   └── syntheses/         ←   综合分析报告
 │
 └── .claude/skills/
-    ├── obsidian-knowledge-base/SKILL.md  ← 本文件
-    ├── ingest/SKILL.md                   ← 编译管线
-    ├── query/SKILL.md                    ← 深度检索
-    ├── lint/SKILL.md                     ← 健康检查
-    └── web-pull/SKILL.md                 ← 网络拉取
+    ├── obsidian-knowledge-base/SKILL.md        ← 本文件
+    ├── ingest_obsidian-knowledge/SKILL.md      ← 编译管线
+    ├── query_obsidian-knowledge/SKILL.md       ← 深度检索
+    ├── lint_obsidian-knowledge/SKILL.md        ← 健康检查
+    └── web-pull_obsidian-knowledge/SKILL.md    ← 网络拉取
 ```
 
 ## 模式详解

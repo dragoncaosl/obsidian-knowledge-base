@@ -1,5 +1,5 @@
 ---
-name: ingest
+name: ingest_obsidian-knowledge
 description: "Use when needing to compile raw source materials into structured wiki pages, when told to 'ingest', 'compile', 'process', or 'extract' knowledge from files in raw/ into the wiki/ knowledge base. Triggered by /ingest commands or user requests to process source materials into the knowledge base"
 ---
 

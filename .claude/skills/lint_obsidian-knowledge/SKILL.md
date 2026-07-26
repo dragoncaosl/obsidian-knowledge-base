@@ -1,5 +1,5 @@
 ---
-name: lint
+name: lint_obsidian-knowledge
 description: "Use when the user asks to check knowledge base health, scan for issues, or run a lint/audit on the wiki. Triggered by /lint, /scan, /health, or user phrases like 'check knowledge base', 'health check', 'find orphan pages', 'find dead links'"
 ---
 

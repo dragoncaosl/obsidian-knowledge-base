@@ -1,5 +1,5 @@
 ---
-name: query
+name: query_obsidian-knowledge
 description: "Use when the user asks to search or query their knowledge base, when asked about things 'in my notes', 'in my wiki', or 'in the knowledge base', or when the user needs a researched answer that draws from compiled wiki content. Triggered by /query or natural language knowledge-base questions"
 ---
 
