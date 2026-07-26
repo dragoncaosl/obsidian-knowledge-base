@@ -37,17 +37,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: 📦 打包总包 ZIP
+      - name: 📦 打包总包 ZIP（直接含 skill 文件夹，CC Switch 直接认）
         run: |
           cd skill
-          for dir in */; do
-            name="${dir%/}"
-            zip -r "../${name}.skill.zip" "$dir"
-          done
-          cd ..
-          zip -r obsidian-knowledge-base-bundle.zip \
-            obsidian-knowledge-base.skill.zip \
-            ingest.skill.zip query.skill.zip lint.skill.zip web-pull.skill.zip
+          zip -r ../obsidian-knowledge-base-bundle.zip ./
+          echo "✅ 总包结构："
+          unzip -l ../obsidian-knowledge-base-bundle.zip | head -20
 
       - name: 🏷️ 创建 Release
         uses: softprops/action-gh-release@v2
